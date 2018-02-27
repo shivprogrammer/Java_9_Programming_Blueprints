@@ -34,3 +34,31 @@ The purpose of this code is much clearer. With streams, we have a clear, declara
 */
 
 // With the stream-based and lambda-based approach, we don't need to declare temporary, intermediate variables (grade count and total), and we don't need to worry about calculating the admittedly simply average. The JDK does all of the heavy-lifting for us.
+
+/*
+Java 8 also has included the exciting new date/time API.
+java.util.Calendar is awful apparently
+So Java 8 incorporated the date time mechanisms of something called Joda Time
+*/
+
+// With Java 8, interfaces can now specify a default method on the interface definition, which the compiler will use for the method implementation if the extending class does not provide one. Let's take the following piece of code as an example:
+
+public interface Speaker {
+  void saySomething(String message);
+}
+public class SpeakerImpl implements Speaker {
+  public void saySomething(String message) {
+    System.out.println(message);
+  }
+}
+
+// Default methods allow us to extend the interface and avoid the breakage by defining an implementation:
+public interface Speaker {
+  void saySomething(String message);
+  default public void sayHello() {
+    System.out.println("Hello");
+  }
+  default public void sayGoodbye() {
+    System.out.println("Good Bye");
+  }
+}
