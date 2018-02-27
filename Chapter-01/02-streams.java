@@ -62,3 +62,5 @@ public interface Speaker {
     System.out.println("Good Bye");
   }
 }
+
+// Now, when users update their library JARs, they immediately gain these new methods and their behavior, without making any changes. Of course, to use these methods, the users will need to modify their code, but they need not do so until -- and if -- they want to.
