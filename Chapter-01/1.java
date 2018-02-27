@@ -31,3 +31,18 @@ t.start();
 Thread t = new Thread(() ->
   System.out.println("Do some work"));
 t.start();
+
+// While lambdas are anonymous functions (that is, they have no names), Java lambdas, as is the case in many other langauges, can also be assigned to variables and passed as parameters (indeed, the functionality would be almost worthless without this capacity.)
+
+// Revisiting the Runnable method in the preceding code, we can separate the declaration and the use of Runnable as follows:
+
+Runnable r = () {
+  // Acquire database connection
+  // Do something really expensive
+};
+Thread t = new Thread(r);
+t.start();
+
+// Any SAM interface can be written as a lambda. Do you have a comparator that you really only need to use once?
+List<Student> students = getStudents();
+students.sort((one, two) -> one.getGrade() - two.getGrade());
