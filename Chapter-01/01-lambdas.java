@@ -46,3 +46,15 @@ t.start();
 // Any SAM interface can be written as a lambda. Do you have a comparator that you really only need to use once?
 List<Student> students = getStudents();
 students.sort((one, two) -> one.getGrade() - two.getGrade());
+
+// How about ActionListener?
+saveButton.setOnAction((event) -> saveAndClose());
+
+// Additionally, you can use your own SAM interfaces in lambdas as follows:
+public <T> interface Validator<T> {
+  boolean isValid(T value);
+}
+cardProcessor.setValidator((card)
+card.getNumber().startsWith("1234"));
+
+// One of the advantages of this approach is that rather than having to decide between an anonymous class and a concrete, named class, the developer can declare it inline, cleanly and concisely.
